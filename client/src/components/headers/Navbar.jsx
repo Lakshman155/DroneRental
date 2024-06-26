@@ -14,11 +14,22 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Modal } from '@mui/material';
+import Login from '../auth/Login';
+import Signup from '../auth/Signup';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Pricing', 'Blog','more'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
+
+  const [open,setOpen]=useState(false)
+  const [open2,setOpen2]=useState(false)
+  const handleopen=()=>{
+    setOpen(true);}
+  // const handleclose=()=>setOpen(false);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -50,7 +61,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -105,7 +116,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -120,15 +131,38 @@ function Navbar() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page)=> (
               <Button
                 key={page}
+
+
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
+          </Box>
+
+
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+
+            
+              <Button
+
+
+                onClick={handleopen}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+
+              Login
+
+
+              
+                
+              </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -162,7 +196,28 @@ function Navbar() {
           </Box>
         </Toolbar>
       </Container>
+
+
+
     </AppBar>
+
+
+
+    
+    
+   
+
+
+
+   
+
+    <Login open={open} setOpen={setOpen} />
+
+    
+
+   
+
+    
  
 
       
