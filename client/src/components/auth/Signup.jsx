@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -23,7 +24,7 @@ function Signup() {
   const [data,setData]=useState({
     fname:'',
     lname:'',
-    phn:null,
+    phone:null,
     email:'',
     pswd:'',
     cnfpswd:''
@@ -31,12 +32,40 @@ function Signup() {
   })
 
   const handleChange=(e)=>{
-    setData(...data,[e.target])
 
+
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
     
   }
-  const handleSubmit = (e) => {
+  
+    
+
+  
+  const handleSubmit = async(e) => {
     e.preventDefault();
+
+    console.log(data)
+    try{
+
+    
+    await  axios.post('http://localhost:8080/users/adduser',data)
+     
+    console.log('user added sucseesfully')
+    }
+    catch(error){
+      console.log(error);
+    }
+
+    
+    
+
+
+   
+
   };
 
   return (
@@ -49,27 +78,27 @@ function Signup() {
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="fname" className="block text-sm font-medium text-gray-700">First Name</label>
-                    <input id="fname" name="fname" type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+                    <input id="fname" name="fname" type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" onChange={handleChange}/>
                   </div>
                   <div>
                     <label htmlFor="lname" className="block text-sm font-medium text-gray-700">Last Name</label>
-                    <input id="lname" name="lname" type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+                    <input id="lname" name="lname" type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" onChange={handleChange}/>
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
-                    <input id="phone" name="phone" type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+                    <input id="phone" name="phone" type="text" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" onChange={handleChange}/>
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                    <input id="email" name="email" type="email" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+                    <input id="email" name="email" type="email" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" onChange={handleChange}/>
                   </div>
                   <div>
                     <label htmlFor="pswd" className="block text-sm font-medium text-gray-700">Password</label>
-                    <input id="pswd" name="pswd" type="password" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+                    <input id="pswd" name="pswd" type="password" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" onChange={handleChange}/>
                   </div>
                   <div>
-                    <label htmlFor="confpswd" className="block text-sm font-medium text-gray-700">Confirm Password</label>
-                    <input id="confpswd" name="confpswd" type="password" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+                    <label htmlFor="cnfpswd" className="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <input id="cnfpswd" name="cnfpswd" type="password" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" onChange={handleChange}/>
                   </div>
                 </div>
                 <div>
