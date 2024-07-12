@@ -3,7 +3,9 @@ const products=[
         "brand": "Bosch",
         "price": 120,
         "capacity": 20,
-        "colour": "Red"
+        "colour": "Red",
+        "name":"hi",
+        "description":"dftgtrg"
     },
     {
         "brand": "Samsung",

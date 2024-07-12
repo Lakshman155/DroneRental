@@ -19,12 +19,14 @@ function App() {
     </Routes>
 
     <Homecarousel/>
+
+    <div className='grid grid-cols-4 gap-4 pl-3 pr-3'>
 {
 
   
   (products.length>0)?
   
-  products.map(item=><ProductCard/>
+  products.map(item=><ProductCard product={item}/>
   )
 
 
@@ -33,6 +35,7 @@ function App() {
 :<div>
 </div>
 }  
+</div>
     
      
     </div>
