@@ -7,6 +7,10 @@ import Navbar from './components/headers/Navbar';
 import Homecarousel from './components/Carousel/Homecarousel';
 import ProductCard from './components/product/Productcard';
 import products from './components/product/Products';
+import ShowHome from './components/product/ShowHome';
+
+
+
 function App() {
   return (
     <div className="App">
@@ -19,23 +23,8 @@ function App() {
     </Routes>
 
     <Homecarousel/>
+    <ShowHome/>
 
-    <div className='grid grid-cols-4 gap-4 pl-3 pr-3'>
-{
-
-  
-  (products.length>0)?
-  
-  products.map(item=><ProductCard product={item}/>
-  )
-
-
-
-    
-:<div>
-</div>
-}  
-</div>
     
      
     </div>
