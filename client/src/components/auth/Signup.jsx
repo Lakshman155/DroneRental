@@ -17,8 +17,8 @@ const style = {
 };
 
 function Signup() {
-  const [open, setOpen] = useState(true);
-  const handleClose = () => setOpen(false);
+  const [open2, setOpen2] = useState(true);
+  const handleClose = () => setOpen2(false);
 
   const [data, setData] = useState({
     fname: '',
@@ -99,7 +99,7 @@ function Signup() {
 
   return (
     <div>
-      <Modal open={open} onClose={handleClose}>
+      <Modal open={open2} onClose={handleClose}>
         <Box sx={style}>
           <div className="flex justify-center items-center">
             <div className="bg-slate-200 p-8 rounded-lg shadow-md max-w-3xl w-full">

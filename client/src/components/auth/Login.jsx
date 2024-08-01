@@ -7,7 +7,10 @@ const Login = ({ open, setOpen }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,7 +67,10 @@ const Login = ({ open, setOpen }) => {
           </form>
           <div className="mt-4 text-center">
             <Typography variant="body2" className="text-gray-500">
-              Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign up</Link>
+
+              Don't have an account? <button className='text-lg text-blue-500' onClick={handleClose}> signup </button>
+              {/* <Link to="/signup" className="text-blue-500 hover:underline" >Sign up</Link> */}
+
             </Typography>
           </div>
         </div>
