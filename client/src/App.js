@@ -8,6 +8,10 @@ import Homecarousel from './components/Carousel/Homecarousel';
 import ProductCard from './components/product/Productcard';
 import products from './components/product/Products';
 import ShowHome from './components/product/ShowHome';
+import AllRentals from './components/admin/AllRentals';
+import AllUsers from './components/admin/AllUsers';
+import AllProducts from './components/admin/AllProducts';
+
 
 
 
@@ -20,6 +24,9 @@ function App() {
     <Routes>
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
+      <Route path='/rents' element={<AllRentals/>}></Route>
+      <Route path='/users' element={<AllUsers/>}></Route>
+      <Route path='/products' element={<AllProducts/>}></Route>
     </Routes>
 
     <Homecarousel/>

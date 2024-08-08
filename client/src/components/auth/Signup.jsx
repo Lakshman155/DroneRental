@@ -90,6 +90,7 @@ function Signup() {
       console.log(data);
       try {
         await axios.post('http://localhost:8080/users/adduser', data);
+        alert("added user");
         console.log('User added successfully');
       } catch (error) {
         console.log(error);
