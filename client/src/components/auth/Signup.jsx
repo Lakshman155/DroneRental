@@ -92,8 +92,10 @@ function Signup() {
         await axios.post('http://localhost:8080/users/adduser', data);
         alert("added user");
         console.log('User added successfully');
+        setOpen2(false);
       } catch (error) {
         console.log(error);
+        alert("error occured");
       }
     }
   };

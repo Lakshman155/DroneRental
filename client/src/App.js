@@ -11,6 +11,7 @@ import ShowHome from './components/product/ShowHome';
 import AllRentals from './components/admin/AllRentals';
 import AllUsers from './components/admin/AllUsers';
 import AllProducts from './components/admin/AllProducts';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -31,6 +32,8 @@ function App() {
 
     <Homecarousel/>
     <ShowHome/>
+
+    <Footer/>
 
 
     

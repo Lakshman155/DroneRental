@@ -47,10 +47,11 @@ const ProductCard = ({ product }) => {
         <p className="text-gray-700 text-base">{product.description}</p>
         <p className="text-gray-900 font-bold mt-2">${product.price}/day</p>
       </div>
-      
+      <div className='p-2'>
       <Button variant='contained' onClick={handleClickOpen}>
         Rent
       </Button>
+      </div>
 
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Rent Product</DialogTitle>

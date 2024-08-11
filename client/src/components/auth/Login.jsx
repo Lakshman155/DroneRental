@@ -7,6 +7,11 @@ const Login = ({ open, setOpen }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [data,setData]=useState({
+    email:'',
+    password:''
+  })
+
   const handleClose = () => {
     setOpen(false);
     
@@ -14,16 +19,24 @@ const Login = ({ open, setOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+// console.log('called login asdd')
 
-    axios.get('http://localhost:8080/users/getuser', { email: email, paswrd: password })
+console.log('The details are', email, password);
+
+
+    axios.post('http://localhost:8080/users/login', {email,password}
+     )
       .then(response => {
         console.log('Login successful:', response.data);
+        handleClose();
+        alert("Login Successful");
+        
+        
       })
       .catch(error => {
         console.error('There was an error logging in:', error);
       });
 
-    console.log('The details are', email, password);
   };
 
   return (
@@ -68,8 +81,8 @@ const Login = ({ open, setOpen }) => {
           <div className="mt-4 text-center">
             <Typography variant="body2" className="text-gray-500">
 
-              Don't have an account? <button className='text-lg text-blue-500' onClick={handleClose}> signup </button>
-              {/* <Link to="/signup" className="text-blue-500 hover:underline" >Sign up</Link> */}
+              Don't have an account? <button className='text-lg text-blue-500' onClick={handleClose}>  <Link to="/signup" className="text-blue-500 hover:underline" >Sign up</Link> </button>
+             
 
             </Typography>
           </div>
