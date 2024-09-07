@@ -35,15 +35,17 @@ const ProductCard = ({ product }) => {
       alert('Added your rental');
       handleClose(); // Close the modal after successful submission
     } catch (err) {
-      console.log('Error in adding to rentals');
+      handleClose(); 
+      alert("please login");
+      // console.log('Error in adding to rentals');
     }
   };
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
-      <img className="w-full h-48 object-cover" src={product.url} alt={product.name} />
+      <img className="w-full h-48 object-cover" src={product.image} alt={product.brand} />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{product.name}</div>
+        <div className="font-bold text-xl mb-2">{product.brand}- {product.capacity} liters</div>
         <p className="text-gray-700 text-base">{product.description}</p>
         <p className="text-gray-900 font-bold mt-2">${product.price}/day</p>
       </div>

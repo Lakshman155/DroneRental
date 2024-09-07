@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../auth/Login';
 import img from './logo.webp';
+import { Typography } from '@mui/material';
 
 const pages = ['Products', 'Pricing', 'More'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -32,7 +33,10 @@ function Navbar() {
             <div className="hidden md:flex items-center space-x-6">
               {pages.map((page) => (
                 <Link key={page} to={`/${page.toLowerCase()}`} className="text-gray-700 hover:text-gray-900">
+               
+                  <Typography>
                   {page}
+                  </Typography>
                 </Link>
               ))}
               <button onClick={() => setOpen(true)} className="text-gray-700 hover:text-gray-900">

@@ -5,11 +5,15 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+const token=localStorage.getItem("token");
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await api.get('/products/getProducts');
+        const response = await api.get('/products/getproducts',{
+          headers:{
+            Authorization:"Bearer "+token
+          }
+        });
         setProducts(response.data);
         setLoading(false);
       } catch (err) {

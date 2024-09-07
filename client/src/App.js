@@ -30,7 +30,7 @@ function App() {
       <Route path='/products' element={<AllProducts/>}></Route>
     </Routes>
 
-    <Homecarousel/>
+    {/* <Homecarousel/> */}
     <ShowHome/>
 
     <Footer/>

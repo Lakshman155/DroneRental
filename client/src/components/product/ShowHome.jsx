@@ -3,7 +3,7 @@ import api from '../api/Api'
 import React from 'react'
 
 import ProductCard from './Productcard'
-
+// import products from './Products'
 import { useState,useEffect } from 'react'
 
 function ShowHome() {
@@ -18,7 +18,7 @@ useEffect(()=>{
      const find=async ()=>{
         try{
 
-            const pds=await api.get('products/getProducts');
+            const pds=await api.get('products/getproducts');
 
             
           console.log(pds.data);

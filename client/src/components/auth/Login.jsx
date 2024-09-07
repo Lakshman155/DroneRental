@@ -28,6 +28,7 @@ console.log('The details are', email, password);
      )
       .then(response => {
         console.log('Login successful:', response.data);
+        localStorage.setItem("token",response.data);
         handleClose();
         alert("Login Successful");
         
