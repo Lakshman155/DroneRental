@@ -25,7 +25,7 @@ function Signup() {
     lname: '',
     phone: '',
     email: '',
-    pswd: '',
+    password: '',
     cnfpswd: ''
   });
 
@@ -45,6 +45,7 @@ function Signup() {
 
     if (!data.fname) {
       tempErrors['fname'] = 'First Name is required';
+
       isValid = false;
     }
     if (!data.lname) {
@@ -65,17 +66,20 @@ function Signup() {
       tempErrors['email'] = 'Email address is invalid';
       isValid = false;
     }
-    if (!data.pswd) {
+    if (!data.password) {
+      // console.log("password is required")
       tempErrors['pswd'] = 'Password is required';
       isValid = false;
-    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(data.pswd)) {
-      tempErrors['pswd'] = 'Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character';
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(data.password)) {
+      console.log("password is not crct",data.password)
+      tempErrors['password'] = 'Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character';
       isValid = false;
     }
     if (!data.cnfpswd) {
       tempErrors['cnfpswd'] = 'Confirm Password is required';
       isValid = false;
-    } else if (data.pswd !== data.cnfpswd) {
+    } else if (data.password !== data.cnfpswd) {
+      console.log("password is not matched d")
       tempErrors['cnfpswd'] = 'Passwords do not match';
       isValid = false;
     }
@@ -94,9 +98,14 @@ function Signup() {
         console.log('User added successfully');
         setOpen2(false);
       } catch (error) {
+        console.log(data);
         console.log(error);
         alert("error occured");
       }
+    }
+    else{
+      alert("validation failed");
+      console.log(errors)
     }
   };
 
@@ -153,15 +162,15 @@ function Signup() {
                     {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
                   </div>
                   <div>
-                    <label htmlFor="pswd" className="block text-sm font-medium text-gray-700">Password</label>
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
                     <input
-                      id="pswd"
-                      name="pswd"
+                      id="password"
+                      name="password"
                       type="password"
                       className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       onChange={handleChange}
                     />
-                    {errors.pswd && <span className="text-red-500 text-sm">{errors.pswd}</span>}
+                    {errors.pswd && <span className="text-red-500 text-sm">{errors.password}</span>}
                   </div>
                   <div>
                     <label htmlFor="cnfpswd" className="block text-sm font-medium text-gray-700">Confirm Password</label>
