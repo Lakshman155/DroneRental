@@ -22,23 +22,35 @@ const ProductCard = ({ product }) => {
   const handleClose = () => {
     setOpen(false);
   };
-
+const token=localStorage.getItem("token");
   const handleAddToRent = async () => {
     try {
-      // console.log(productid,rentDate,returnDate)
-      await api.post('/rent/addrentals', {
-        
-        rentDate,
-        returnDate,
-        product
-        
+      console.log(product.id,rentDate,returnDate,token)
 
-      });
+      const pid=product.id;
+      await api.post(`/rent/addrentals/${pid}`, 
+        
+        { // Request body
+          rentDate: rentDate,
+          returnDate: returnDate
+      },
+      { // Request options
+          headers: {
+              Authorization: `Bearer ${token}`, // Authorization header
+              'Content-Type': 'application/json' // Content type set to JSON
+          }
+      }
+     
+        
+     
+
+      
+    );
       alert('Added your rental');
       handleClose(); // Close the modal after successful submission
     } catch (err) {
       handleClose(); 
-      alert("please login");
+      alert(err);
       // console.log('Error in adding to rentals');
     }
   };
